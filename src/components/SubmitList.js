@@ -24,7 +24,7 @@ export default class SubmitList extends React.Component {
     return(
       <div>
         <form onSubmit={this.handleSubmit}>
-          <input type="text" name="listName" onChange={this.handleChange}/>
+          <input type="text" name="listName" onChange={this.handleChange} required/>
           <button type="submit">Submit</button>
         </form>
       </div>

@@ -8,7 +8,6 @@ export default class Task extends React.Component {
     let id = this.props.task.id
     let listId = this.props.listId
     let priority = this.props.task.priority
-    debugger
     this.props.deleteTask(name, description, id, priority, listId)
   }
 
@@ -16,7 +15,7 @@ export default class Task extends React.Component {
 render() {
   return (
       <div>
-        Task: {this.props.task.name}
+        {this.props.task.name}
         <button onClick={this.deleteTask}> Delete Task </button>
       </div>
     )

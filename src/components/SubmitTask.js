@@ -30,7 +30,6 @@ export default class SubmitTask extends React.Component {
   }
 
   handleSubmit = (e) => {
-    e.preventDefault()
     let taskData = this.state
     TasksAdapter.makeTask(taskData)
   }
@@ -40,8 +39,8 @@ export default class SubmitTask extends React.Component {
         <div>
           <form onSubmit={this.handleSubmit}>
             <Options listOptions={this.props.listOptions} handleChange={this.selectIdHandleChange}/>
-            <input onChange={this.handleChange} type="text" name="name"/>
-            <input onChange={this.handleChange} type="text" name="description"/>
+            <input onChange={this.handleChange} type="text" name="name" required/>
+            <input onChange={this.handleChange} type="text" name="description" required/>
             <select onChange={this.handleChange} name="priority">
               <option value="1">1</option>
               <option value="2">2</option>
