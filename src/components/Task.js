@@ -1,9 +1,10 @@
 import React from 'react'
 
-const Task = () => {
+const Task = (props) => {
+  debugger
   return (
     <div>
-      
+      {props.task.name}
     </div>
   )
 }

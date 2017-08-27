@@ -1,15 +1,30 @@
 import React from 'react'
+import TasksAdapter from '../adapters/TasksAdapter'
+import Task from './Task'
 
 export default class List extends React.Component {
 
   constructor() {
     super()
+    this.state = {
+      tasks: []
+    }
   }
 
-  render() {
+  componentDidMount(){
+    TasksAdapter.getTasks(this.props.listId)
+      .then( filteredTasks => {
+        this.setState({tasks: filteredTasks})
+      })
+    }
+
+
+render() {
+
   return(
     <div>
       <li>{this.props.listName}</li>
+      <div> {this.state.tasks.map((task, i) => <Task task={task} key={i} /> )} </div>
     </div>
   )}
 }

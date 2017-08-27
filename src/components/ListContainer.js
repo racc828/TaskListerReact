@@ -34,7 +34,7 @@ export default class ListContainer extends React.Component {
         <SubmitList makeList={this.makeList}/>
         <Options listOptions={this.state.lists}/>
         <ul>
-          {this.state.lists.map((list, i) => <List listName={list.name} key={i}/>)}
+          {this.state.lists.map((list, i) => <List listName={list.name} key={i} listId={list.id}/>)}
         </ul>
       </div>
     )

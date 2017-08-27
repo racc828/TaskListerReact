@@ -10,11 +10,14 @@ export default class ListsAdapter {
     .then( resp => resp.json())
   }
 
-  static getTasks() {
+  static getTasks(listId) {
     return fetch(path, {
       headers: headers()
     })
       .then( resp => resp.json())
+      .then( tasks => {
+        return tasks.filter((t) => t.list_id === listId)
+      })
     }
   }
 

@@ -1,11 +1,10 @@
 import React from 'react'
 
 const Options = (props) => {
-  debugger
   return (
     <div>
       <select>
-          {props.listOptions.map((option) => <option id={option.id}>{option.name}</option> )}
+          {props.listOptions.map((option, i) => <option id={option.id} key={i}>{option.name}</option> )}
       </select>
     </div>
   )
