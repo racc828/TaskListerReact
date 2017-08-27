@@ -22,8 +22,8 @@ export default class List extends React.Component {
 render() {
 
   return(
-    <div>
-      <li>{this.props.listName}</li>
+    <div className="list-container">
+      <li>List:{this.props.listName}</li>
       <div> {this.state.tasks.map((task, i) => <Task task={task} key={i} /> )} </div>
     </div>
   )}
