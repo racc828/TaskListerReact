@@ -29,8 +29,8 @@ export default class ListContainer extends React.Component {
 
     deleteList = (listId, listName) => {
       ListsAdapter.deleteList(listId, listName)
-      .then(newlist => this.setState({
-        lists: newlist
+      .then(newlists => this.setState({
+        lists: newlists
       }))
     }
 
