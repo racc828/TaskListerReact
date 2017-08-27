@@ -46,11 +46,12 @@ export default class SubmitTask extends React.Component {
               <label>Task Description</label>
               <input onChange={this.handleChange} type="text" name="description" required/>
               <label>Choose Priority</label>
-              <select onChange={this.handleChange} name="priority">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
+              <select onChange={this.handleChange} name="priority" required>
+                <option value="">Choose a priority</option>
+                <option value="1">Do it now (urgent &amp; important)</option>
+                <option value="2">Schedule a time to do it (not urgent &amp; important)</option>
+                <option value="3">Delegate - who can do it for you? (urgent &amp; not important)</option>
+                <option value="4">Eliminate (not urgent &amp; not important)</option>
               </select>
               <button type="submit">Submit</button>
             </form>

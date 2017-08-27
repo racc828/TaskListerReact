@@ -20,6 +20,9 @@ render() {
         <p>
           description:{this.props.task.description}
         </p>
+        <p>
+          Priority: {this.props.task.priority}
+        </p>
       </div>
     )
   }

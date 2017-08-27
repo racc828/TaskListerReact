@@ -18,7 +18,15 @@ export default class List extends React.Component {
       })
     }
 
+    componentWillReceiveProps(props) {
+      TasksAdapter.getTasks(props.listId)
+        .then( filteredTasks => {
+          this.setState({tasks: filteredTasks})
+        })
+    }
+
     deleteList = () => {
+      debugger
       let listName = this.props.listName
       let listId = this.props.listId
       let userId = this.props.userId
@@ -30,7 +38,9 @@ export default class List extends React.Component {
       .then( filteredTasks => {
         this.setState({tasks: filteredTasks})
       })
+
     }
+
 
 render() {
 
