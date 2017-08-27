@@ -24,6 +24,7 @@ export default class Login extends React.Component {
     e.preventDefault()
     let user = this.state
     this.props.getUser(user)
+    this.props.history.push('main')
   }
 
   render(){

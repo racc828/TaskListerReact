@@ -50,19 +50,24 @@ export default class ListContainer extends React.Component {
       this.setState({
         currentUser: {}
       })
+      this.props.history.push("")
     }
 
   render() {
 
     return(
       <div>
+        <h4>Welcome {this.state.currentUser.username} </h4>
         <button onClick={this.signOut}> Sign Out </button>
-        <SubmitList makeList={this.makeList} currentUser={this.state.currentUser}/>
-        <SubmitTask listOptions={this.state.lists} />
-
-        <ul>
-          {this.state.lists.map((list, i) => <List deleteList={this.deleteList} userId={list.user_id} listName={list.name} key={i} listId={list.id}/>)}
-        </ul>
+        <div className="forms-header">
+          <SubmitList makeList={this.makeList} currentUser={this.state.currentUser}/>
+          <SubmitTask listOptions={this.state.lists} />
+        </div>
+        <div className="list-body">
+          <ul>
+            {this.state.lists.map((list, i) => <List deleteList={this.deleteList} userId={list.user_id} listName={list.name} key={i} listId={list.id}/>)}
+          </ul>
+        </div>
       </div>
     )
   }

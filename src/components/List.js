@@ -36,7 +36,11 @@ render() {
 
   return(
     <div className="list-container">
-      <li>{this.props.listName}</li> <button onClick={this.deleteList}>Delete </button>
+      <div className="list-header">
+        <li>{this.props.listName}</li>
+         <button className="float-right" onClick={this.deleteList}>Delete </button>
+       </div>
+      <hr/>
       <div> {this.state.tasks.map((task, i) => <Task listId={this.props.listId} task={task} deleteTask={this.deleteTask} key={i} /> )} </div>
     </div>
   )}

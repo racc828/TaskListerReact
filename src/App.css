@@ -1,17 +1,135 @@
 .App {
   text-align: center;
+  width:95%;
+  margin:auto;
+}
+
+body, html {
+  background-image:url('https://images.unsplash.com/photo-1432821596592-e2c18b78144f?dpr=1&auto=format&fit=crop&w=1080&h=720&q=80&cs=tinysrgb&crop=');
 }
 
 ul {
   list-style:none;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+h2, h3, h4, h5, h6 {
+  font-weight:300;
+}
+
+button {
+  background:linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+  color:#000;
+  border-radius:.2em;
+  -webkit-tap-highlight-color: transparent;
+  letter-spacing: .5px;
+  outline:0;
+  border:none;
+  height:30px;
+  line-height:30px;
+  padding: 0 2em;
+  text-transform: uppercase;
+  cursor:pointer;
+  box-shadow:0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+}
+
+select {
+  height:30px;
+  border:1px solid #808080;
+}
+
+select:focus {
+  outline:none;
+}
+
+input {
+  width:100%;
+  display:block;
+  margin-bottom:10px;
+  border:none;
+  background:transparent;
+  border-bottom:1px solid #808080;
+  height:20px;
+}
+
+input:focus {
+  outline:none;
+  border-bottom:1px solid #8fd3f4;
+}
+
+input:-webkit-autofill,textarea:-webkit-autofill, select:-webkit-autofill {
+  background-color:none!important;
+}
+
+select{
+  display:block;
+  width:100%;
+  margin-bottom:10px;
+}
+
+label {
+  text-transform:uppercase;
+  font-size:.6em;
+  display:block;
+}
+
+.forms-header {
+  height:250px;
+  margin-top:20px;
+}
+
+.submit-form {
+  width:45%;
+  text-align:left;
+  float:left;
+  margin-left:5%;
+}
+
+.inner-form-container {
+  background:rgba(255, 255, 255, 0.85);
+  box-shadow:0 8px 10px 1px rgba(0,0,0,0.14), 0 3px 14px 2px rgba(0,0,0,0.12), 0 5px 5px -3px rgba(0,0,0,0.3);
+  padding:20px 30px;
+}
+
+.list-body {
+  width:100%;
+  margin-top:40px;
+}
+
+.task-container {
+  background:rgba(255, 255, 255, 0.85);
+  box-shadow:0 6px 8px 1px rgba(0,0,0,0.14), 0 3px 14px 2px rgba(0,0,0,0.12), 0 5px 5px -3px rgba(0,0,0,0.3);
+  padding: 20px 30px;
+  text-align:left;
+  margin-top:10px;
+}
+
+.task-container button {
+  float:right;
+  margin-top:-5px;
+}
+
+.list-header li {
+  text-align:left;
+}
+
+.list-header {
+  position:relative;
+  margin-bottom:20px;
+}
+
+.list-header button {
+  position:absolute;
+  top:0;
+  right:0;
+}
+
+.float-right {
+  float:right;
 }
 
 .list-container {
-  border: 1px solid pink;
-  margin-top:20px;
+  background:rgba(255, 255, 255, 0.85);
+  margin-bottom:10px;
+  box-shadow:0 8px 10px 1px rgba(0,0,0,0.14), 0 3px 14px 2px rgba(0,0,0,0.12), 0 5px 5px -3px rgba(0,0,0,0.3);
+  padding:20px 30px;
 }

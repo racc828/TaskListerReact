@@ -17,17 +17,19 @@ export default class SubmitList extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    console.log(this.props.currentUser)
     this.props.makeList(this.state.listName, this.props.currentUser)
   }
 
   render(){
     return(
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <input type="text" name="listName" onChange={this.handleChange} required/>
-          <button type="submit">Submit</button>
-        </form>
+      <div className="submit-list submit-form">
+        <div className="inner-form-container">
+          <form onSubmit={this.handleSubmit}>
+            <label>Add a new Item</label>
+            <input placeholder="title" type="text" name="listName" onChange={this.handleChange} required/>
+            <button type="submit">Submit</button>
+          </form>
+        </div>
       </div>
     )
   }

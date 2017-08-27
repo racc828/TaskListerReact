@@ -27,29 +27,30 @@ class App extends Component {
         localStorage.setItem('token', data.jwt)
         this.setState({currentUser: data })
       })
-}
+    }
 
-
-  renderSignup = () => {
+  renderHome = (params) => {
     return (
       <div>
-        <Signup />
+        <h4> Sign up or Login </h4>
+        <div className="submit-task submit-form">
+          <div className="inner-form-container">
+            <Login getUser={this.getUser} history={params.history} />
+          </div>
+        </div>
+        <div className="submit-task submit-form">
+          <div className="inner-form-container">
+            <Signup />
+          </div>
+        </div>
       </div>
     )
   }
 
-  renderLogin = () => {
+  renderUserMain = (props) => {
     return (
       <div>
-        <Login getUser={this.getUser} />
-      </div>
-    )
-  }
-
-  renderUserMain = () => {
-    return (
-      <div>
-        <ListContainer lists={this.state.lists} currentUser={this.state.currentUser.id}/>
+        <ListContainer history={props.history} lists={this.state.lists} currentUser={this.state.currentUser.id}/>
       </div>
     )
   }
@@ -64,14 +65,11 @@ class App extends Component {
                 <Navbar />
                 <Route exact path="/" render={this.renderHome}/>
                 <Route exact path="/main" render={this.renderUserMain}/>
-                <Route exact path="/login" render={this.renderLogin}/>
-                <Route exact path="/signup" render={this.renderSignup}/>
                 <Route exact path="/settings" render={this.settings}
                 />
             </div>
           </Router>
         </div>
-
       </div>
     );
   }

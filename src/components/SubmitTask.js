@@ -36,19 +36,25 @@ export default class SubmitTask extends React.Component {
 
     render() {
       return(
-        <div>
-          <form onSubmit={this.handleSubmit}>
-            <Options listOptions={this.props.listOptions} handleChange={this.selectIdHandleChange}/>
-            <input onChange={this.handleChange} type="text" name="name" required/>
-            <input onChange={this.handleChange} type="text" name="description" required/>
-            <select onChange={this.handleChange} name="priority">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-            </select>
-            <button type="submit">Submit</button>
-          </form>
+        <div className="submit-task submit-form">
+          <div className="inner-form-container">
+            <form onSubmit={this.handleSubmit}>
+              <label>Choose a list</label>
+              <Options listOptions={this.props.listOptions} handleChange={this.selectIdHandleChange}/>
+              <label>Task Name</label>
+              <input onChange={this.handleChange} type="text" name="name" required/>
+              <label>Task Description</label>
+              <input onChange={this.handleChange} type="text" name="description" required/>
+              <label>Choose Priority</label>
+              <select onChange={this.handleChange} name="priority">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+              <button type="submit">Submit</button>
+            </form>
+          </div>
         </div>
       )
     }
