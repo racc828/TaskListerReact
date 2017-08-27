@@ -21,7 +21,8 @@ export default class List extends React.Component {
     deleteList = () => {
       let listName = this.props.listName
       let listId = this.props.listId
-      this.props.deleteList(listId, listName)
+      let userId = this.props.userId
+      this.props.deleteList(listId, listName, userId)
     }
 
     deleteTask = (name, description, id, priority, listId) => {

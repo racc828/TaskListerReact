@@ -17,7 +17,8 @@ export default class SubmitList extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    this.props.makeList(this.state.listName)
+    console.log(this.props.currentUser)
+    this.props.makeList(this.state.listName, this.props.currentUser)
   }
 
   render(){

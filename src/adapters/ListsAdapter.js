@@ -1,34 +1,43 @@
 const path = 'http://localhost:3000/api/v1/lists'
 export default class ListsAdapter {
 
-  static makeList(listName) {
+  static makeList(listName, currentUser) {
     return fetch(path,{
       method: 'POST',
       headers: headers(),
       body: JSON.stringify({
-        name: `${listName}`
+        name: `${listName}`,
+        user_id: `${currentUser.id}`
       })
     })
     .then( resp => resp.json())
   }
 
-  static getLists() {
+  static getLists(currentUser) {
     return fetch(path, {
       headers: headers()
-    })
+      })
       .then( resp => resp.json())
+      .then( lists => {
+         return lists.filter((list) => list.user_id == currentUser.id)
+      })
     }
 
-  static deleteList(listId, listName) {
+  static deleteList(listId, listName, userId, currentUser) {
+    debugger
     return fetch(`http://localhost:3000/api/v1/lists/${listId}`, {
       method: 'DELETE',
       headers: headers(),
       body: JSON.stringify({
         name: `${listName}`,
-        id: `${listId}`
+        id: `${listId}`,
+        user_id: `${userId}`
       })
     })
     .then( resp => resp.json())
+    .then( lists => {
+       return lists.filter((list) => list.user_id == currentUser.id)
+    })
   }
 
   }
@@ -37,6 +46,7 @@ export default class ListsAdapter {
 let headers = () => {
   return {
     'Accept': 'application/json',
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${localStorage.getItem('token')}`
   }
 }
