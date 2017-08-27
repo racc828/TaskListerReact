@@ -2,6 +2,7 @@ import React from 'react'
 import List from './List'
 import ListsAdapter from '../adapters/ListsAdapter'
 import SubmitList from '../components/SubmitList'
+import Options from '../components/Options'
 
 export default class ListContainer extends React.Component {
 
@@ -31,6 +32,7 @@ export default class ListContainer extends React.Component {
     return(
       <div>
         <SubmitList makeList={this.makeList}/>
+        <Options listOptions={this.state.lists}/>
         <ul>
           {this.state.lists.map((list, i) => <List listName={list.name} key={i}/>)}
         </ul>
