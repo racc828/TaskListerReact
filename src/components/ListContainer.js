@@ -27,6 +27,13 @@ export default class ListContainer extends React.Component {
       }))
     }
 
+    deleteList = (listId, listName) => {
+      ListsAdapter.deleteList(listId, listName)
+      .then(newlist => this.setState({
+        lists: newlist
+      }))
+    }
+
   render() {
 
     return(
@@ -35,7 +42,7 @@ export default class ListContainer extends React.Component {
         <SubmitTask listOptions={this.state.lists} />
 
         <ul>
-          {this.state.lists.map((list, i) => <List listName={list.name} key={i} listId={list.id}/>)}
+          {this.state.lists.map((list, i) => <List deleteList={this.deleteList} listName={list.name} key={i} listId={list.id}/>)}
         </ul>
       </div>
     )

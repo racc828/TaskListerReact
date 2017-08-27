@@ -18,12 +18,18 @@ export default class List extends React.Component {
       })
     }
 
+    handleDelete = () => {
+      let listName = this.props.listName
+      let listId = this.props.listId
+      this.props.deleteList(listId, listName)
+    }
+
 
 render() {
 
   return(
     <div className="list-container">
-      <li>List:{this.props.listName}</li>
+      <li>List:{this.props.listName}</li> <button onClick={this.handleDelete}>Delete </button>
       <div> {this.state.tasks.map((task, i) => <Task task={task} key={i} /> )} </div>
     </div>
   )}
