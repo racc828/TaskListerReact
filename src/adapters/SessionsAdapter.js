@@ -17,8 +17,6 @@ export default class SessionsAdapter {
       headers: headers()
     })
       .then(res=> {
-        console.log(headers())
-        console.log(localStorage.getItem('token'))
         return res.json()
       })
   }

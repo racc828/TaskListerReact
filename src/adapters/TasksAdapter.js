@@ -40,9 +40,11 @@ export default class ListsAdapter {
 
   }
 
-let headers = () => {
-  return {
-    'Accept': 'application/json',
-    'Content-Type': 'application/json'
+  let headers = () => {
+    const token = localStorage.getItem('token')
+    return {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization': `${token}`
+    }
   }
-}
