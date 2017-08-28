@@ -23,8 +23,7 @@ export default class Login extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault()
     let user = this.state
-    this.props.getUser(user)
-    this.props.history.push('main')
+    this.props.getUser(user).then( () => {this.props.history.push("main")} )
   }
 
   render(){

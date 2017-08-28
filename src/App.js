@@ -31,12 +31,24 @@ class App extends Component {
      }
 
   getUser = (user) => {
-    SessionsAdapter.getUser(user)
+    return SessionsAdapter.getUser(user)
       .then( data => {
         localStorage.setItem('token', data.jwt)
         this.setState({currentUser: data })
       })
     }
+
+
+    createUser = (user) => {
+      return UsersAdapter.createUser(user)
+      .then( user => {
+        localStorage.setItem('token', user.jwt)
+        this.setState({
+        currentUser: user
+      })
+      }
+    )
+  }
 
   renderHome = (params) => {
     return (
@@ -49,7 +61,7 @@ class App extends Component {
         </div>
         <div className="submit-task submit-form">
           <div className="inner-form-container">
-            <Signup />
+            <Signup createUser={this.createUser} history={params.history} />
           </div>
         </div>
       </div>
@@ -71,7 +83,6 @@ class App extends Component {
         <div className="navigation">
           <Router>
             <div>
-                <Navbar />
                 <Route exact path="/" render={this.renderHome}/>
                 <Route exact path="/main" render={this.renderUserMain}/>
                 <Route exact path="/settings" render={this.settings}

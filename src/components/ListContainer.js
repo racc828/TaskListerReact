@@ -47,9 +47,7 @@ export default class ListContainer extends React.Component {
 
     signOut = () => {
       localStorage.token = ""
-      this.setState({
-        currentUser: {}
-      })
+      this.setState({currentUser: {}})
       this.props.history.push("")
     }
 
@@ -57,8 +55,10 @@ export default class ListContainer extends React.Component {
 
     return(
       <div>
-        <h4>Welcome {this.state.currentUser.username} </h4>
-        <button onClick={this.signOut}> Sign Out </button>
+        <div className="user-header">
+          <span>  Welcome {this.state.currentUser.username} </span>
+          <button onClick={this.signOut}> Sign Out </button>
+        </div>
         <div className="forms-header">
           <SubmitList makeList={this.makeList} currentUser={this.state.currentUser}/>
           <SubmitTask listOptions={this.state.lists} />

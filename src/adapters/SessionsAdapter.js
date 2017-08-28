@@ -11,7 +11,6 @@ export default class SessionsAdapter {
   }
 
   static currentUser(){
-    console.log("Gimme those tokens", headers())
     return fetch(`${path}/current_user`, {
       method: 'GET',
       headers: headers()

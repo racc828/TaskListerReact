@@ -6,9 +6,10 @@ export default class UsersAdapter {
     return fetch(path, {
       method: 'post',
       headers: headers(),
-      body: JSON.stringify({user:user})
+      body: JSON.stringify(user)
     })
     .then( resp => resp.json())
+    localStorage.setItem('token', user.jwt)
   }
 
 }
