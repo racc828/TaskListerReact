@@ -23,9 +23,9 @@ export default class EditList extends React.Component {
   render(){
     return(
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} id="editListForm">
           <input type="text" name="listName" onChange={this.handleChange} value={this.state.listName}/>
-          <button type="submit">Save </button>
+          <button type="submit" className="saveListEdit">Save </button>
         </form>
       </div>
     )

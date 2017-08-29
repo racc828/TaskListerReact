@@ -41,7 +41,6 @@ export default class ListsAdapter {
   }
 
   static editList(listName, listId, userId) {
-    debugger
       return fetch(`http://localhost:3000/api/v1/lists/${listId}`, {
         method: 'PATCH',
         headers:headers(),

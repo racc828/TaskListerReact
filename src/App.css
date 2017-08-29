@@ -181,6 +181,15 @@ label {
   margin-left:8px;
 }
 
+.saveListEdit {
+  position:absolute;
+  top:0;
+  right:0;
+  width: 99.24px;
+}
+#editListForm input{
+  height:50px;
+}
 
 .list-container {
   background:rgba(255, 255, 255, 0.85);
