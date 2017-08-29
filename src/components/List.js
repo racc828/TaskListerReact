@@ -47,6 +47,20 @@ export default class List extends React.Component {
       this.props.deleteList(listId, listName, userId)
     }
 
+    editTask = (taskData, taskId) => {
+      TasksAdapter.editTask(taskData, taskId)
+      .then(filteredTasks => {
+        let index = this.state.tasks.findIndex(task=> task.id === taskId)
+        this.setState({
+          tasks: [
+           ...this.state.tasks.slice(0,index),
+           Object.assign({}, this.state.tasks[index], filteredTasks),
+           ...this.state.tasks.slice(index+1)
+         ]
+        })
+      })
+    }
+
     deleteTask = (name, description, id, priority, listId) => {
       TasksAdapter.deleteTask(name, description, id, priority, listId)
       .then( filteredTasks => {
@@ -65,12 +79,12 @@ render() {
            <button className="inline-button" onClick={this.deleteList}><i className="fa fa-trash"></i>
          </button>
            <button className="inline-button" onClick={this.showEditListForm}> <i className="fa fa-pencil"></i>
-</button>
+         </button>
          </div>
          { this.state.showEditListForm ? <EditList editList={this.editList} listName={this.state.listName}/> : <li>{this.props.listName}</li>}
        </div>
       <hr/>
-      <div> {this.state.tasks.map((task, i) => <Task listId={this.props.listId} task={task} deleteTask={this.deleteTask} key={i} /> )} </div>
+      <div> {this.state.tasks.map((task, i) => <Task listId={this.props.listId} editTask={this.editTask} task={task} deleteTask={this.deleteTask} key={i} /> )} </div>
     </div>
   )}
 }

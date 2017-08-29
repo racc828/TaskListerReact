@@ -4,7 +4,6 @@ export default class EditList extends React.Component {
 
   constructor(props) {
     super(props)
-
     this.state = {
       listName: this.props.listName
     }
@@ -26,7 +25,7 @@ export default class EditList extends React.Component {
         <form onSubmit={this.handleSubmit} id="editListForm">
           <input type="text" name="listName" onChange={this.handleChange} value={this.state.listName}/>
           <button type="submit" className="saveListEdit"><i className="fa fa-floppy-o"></i>
- </button>
+        </button>
         </form>
       </div>
     )

@@ -21,6 +21,21 @@ export default class ListsAdapter {
       })
     }
 
+    static editTask(taskData, taskId) {
+      debugger
+      return fetch(`http://localhost:3000/api/v1/tasks/${taskId}`, {
+        method: 'PATCH',
+        headers:headers(),
+        body: JSON.stringify({
+          name: `${taskData.name}`,
+          descipription: `${taskData.description}`,
+          priority: `${taskData.priority}`,
+          list_id: `${taskData.list_id}`
+        })
+      })
+      .then( resp => resp.json())
+    }
+
     static deleteTask(name, description, id, priority, listId) {
       return fetch(`http://localhost:3000/api/v1/tasks/${id}`, {
         method: 'DELETE',

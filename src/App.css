@@ -126,6 +126,20 @@ label {
   float:left
 }
 
+#submitTaskEdit {
+  position:relative;
+}
+
+.saveTaskEdit {
+  position:absolute;
+  top:0;
+  right:0;
+}
+
+.task-container button {
+  margin-left:10px;
+}
+
 .forms-header {
   height:250px;
   margin-top:20px;
