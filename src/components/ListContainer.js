@@ -2,6 +2,7 @@ import React from 'react'
 import List from './List'
 import ListsAdapter from '../adapters/ListsAdapter'
 import SessionsAdapter from '../adapters/SessionsAdapter'
+import TasksAdapter from '../adapters/TasksAdapter'
 import SubmitList from '../components/SubmitList'
 import SubmitTask from '../components/SubmitTask'
 import Options from '../components/Options'
@@ -12,7 +13,8 @@ export default class ListContainer extends React.Component {
     super()
     this.state = {
       lists: [],
-      currentUser: {}
+      currentUser: {},
+      newTaskData: {}
     }
   }
 
@@ -35,6 +37,13 @@ export default class ListContainer extends React.Component {
       ListsAdapter.makeList(listName, currentUser)
       .then(data => this.setState({
         lists: [...this.state.lists, data]
+      }))
+    }
+
+    makeTask = (taskData) => {
+      TasksAdapter.makeTask(taskData)
+      .then(data => this.setState({
+        newTaskData: taskData
       }))
     }
 
@@ -75,11 +84,11 @@ export default class ListContainer extends React.Component {
         </div>
         <div className="forms-header">
           <SubmitList makeList={this.makeList} currentUser={this.state.currentUser}/>
-          <SubmitTask listOptions={this.state.lists} />
+          <SubmitTask listOptions={this.state.lists} makeTask={this.makeTask} />
         </div>
         <div className="list-body">
           <ul>
-            {this.state.lists.map((list, i) => <List editList={this.editList} deleteList={this.deleteList} userId={list.user_id} listName={list.name} key={i} listId={list.id}/>)}
+            {this.state.lists.map((list, i) => <List newTaskData={this.state.newTaskData} editList={this.editList} deleteList={this.deleteList} userId={list.user_id} listName={list.name} key={i} listId={list.id}/>)}
           </ul>
         </div>
       </div>

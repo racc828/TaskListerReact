@@ -30,8 +30,9 @@ export default class SubmitTask extends React.Component {
   }
 
   handleSubmit = (e) => {
+    e.preventDefault()
     let taskData = this.state
-    TasksAdapter.makeTask(taskData)
+    this.props.makeTask(taskData)
   }
 
     render() {
