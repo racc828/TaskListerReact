@@ -28,7 +28,7 @@ export default class ListsAdapter {
         headers:headers(),
         body: JSON.stringify({
           name: `${taskData.name}`,
-          descipription: `${taskData.description}`,
+          description: `${taskData.description}`,
           priority: `${taskData.priority}`,
           list_id: `${taskData.list_id}`
         })

@@ -47,19 +47,38 @@ export default class List extends React.Component {
       this.props.deleteList(listId, listName, userId)
     }
 
+    compareValues = (a, b) => {
+      let taskA = a.priority
+      let taskB = b.priority
+      let comparison = 0
+      if (taskA > taskB) {
+        comparison = 1
+      } else if (taskA > taskB) {
+        comparison = -1
+      }
+      return comparison
+    }
+
     editTask = (taskData, taskId) => {
       TasksAdapter.editTask(taskData, taskId)
-      .then(filteredTasks => {
+      .then(newTask => {
         let index = this.state.tasks.findIndex(task=> task.id === taskId)
         this.setState({
           tasks: [
            ...this.state.tasks.slice(0,index),
-           Object.assign({}, this.state.tasks[index], filteredTasks),
+           Object.assign({}, this.state.tasks[index], newTask),
            ...this.state.tasks.slice(index+1)
          ]
         })
       })
+      .then( () => {
+        let newTasks = this.state.tasks.sort(this.compareValues)
+        this.setState({
+          newTasks
+        })
+      })
     }
+
 
     deleteTask = (name, description, id, priority, listId) => {
       TasksAdapter.deleteTask(name, description, id, priority, listId)
