@@ -38,6 +38,20 @@ export default class ListContainer extends React.Component {
       }))
     }
 
+    editList = (newListName, listId, userId) => {
+      return ListsAdapter.editList(newListName, listId, userId)
+        .then( data => {
+          let index = this.state.lists.findIndex(list=> list.id === listId)
+          this.setState({
+              lists: [
+               ...this.state.lists.slice(0,index),
+               Object.assign({}, this.state.lists[index], data),
+               ...this.state.lists.slice(index+1)
+             ]
+           });
+        })
+    }
+
     deleteList = (listId, listName, userId) => {
       ListsAdapter.deleteList(listId, listName, userId, this.state.currentUser)
       .then(newlists => this.setState({
@@ -65,7 +79,7 @@ export default class ListContainer extends React.Component {
         </div>
         <div className="list-body">
           <ul>
-            {this.state.lists.map((list, i) => <List deleteList={this.deleteList} userId={list.user_id} listName={list.name} key={i} listId={list.id}/>)}
+            {this.state.lists.map((list, i) => <List editList={this.editList} deleteList={this.deleteList} userId={list.user_id} listName={list.name} key={i} listId={list.id}/>)}
           </ul>
         </div>
       </div>
