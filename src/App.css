@@ -181,11 +181,14 @@ label {
   margin-left:8px;
 }
 
+.fa-plus {
+  margin-right:3px;
+}
+
 .saveListEdit {
   position:absolute;
   top:0;
   right:0;
-  width: 99.24px;
 }
 #editListForm input{
   height:50px;

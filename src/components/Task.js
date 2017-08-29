@@ -16,7 +16,7 @@ render() {
   return (
       <div className="task-container">
         {this.props.task.name}
-        <button onClick={this.deleteTask}> Delete Task </button>
+        <button onClick={this.deleteTask}><i className="fa fa-trash"></i></button>
         <p>
           description:{this.props.task.description}
         </p>

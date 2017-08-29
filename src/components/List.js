@@ -62,8 +62,10 @@ render() {
     <div className="list-container">
       <div className="list-header">
         <div className="buttons-container">
-           <button className="inline-button" onClick={this.deleteList}>Delete List</button>
-           <button className="inline-button" onClick={this.showEditListForm}> Edit List</button>
+           <button className="inline-button" onClick={this.deleteList}><i className="fa fa-trash"></i>
+         </button>
+           <button className="inline-button" onClick={this.showEditListForm}> <i className="fa fa-pencil"></i>
+</button>
          </div>
          { this.state.showEditListForm ? <EditList editList={this.editList} listName={this.state.listName}/> : <li>{this.props.listName}</li>}
        </div>

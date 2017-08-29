@@ -53,7 +53,7 @@ export default class SubmitTask extends React.Component {
                 <option value="3">Delegate - who can do it for you? (urgent &amp; not important)</option>
                 <option value="4">Eliminate (not urgent &amp; not important)</option>
               </select>
-              <button type="submit">Submit</button>
+              <button type="submit"><i className="fa fa-plus" ></i>Add</button>
             </form>
           </div>
         </div>

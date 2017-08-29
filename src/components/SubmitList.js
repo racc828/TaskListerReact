@@ -27,7 +27,7 @@ export default class SubmitList extends React.Component {
           <form onSubmit={this.handleSubmit}>
             <label>Add a new Item</label>
             <input placeholder="title" type="text" name="listName" onChange={this.handleChange} required/>
-            <button type="submit">Submit</button>
+            <button type="submit"><i className="fa fa-plus" ></i>Add</button>
           </form>
         </div>
       </div>
